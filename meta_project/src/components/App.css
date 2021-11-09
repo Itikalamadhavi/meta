@@ -128,12 +128,12 @@ body {
         }
   
             #wrapper #div2 li #firstname {
-                width: 49%;
+                width: 100%;
             }
   
             #wrapper #div2 li #surname {
-                margin-left: 2%;
-                width: 49%;
+            
+                width: 100%;
             }
   
             #wrapper #div2 li input[type="text"] {
