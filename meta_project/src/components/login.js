@@ -11,7 +11,7 @@ export default function Loginpage(){
             <div class="container">
                 <div class="content">
                     <img src="https://yt3.ggpht.com/AAnXC4o1n8BKDsO5l6Uc71rf7WOJjm2-aUHzkvyp9vGYB5F4UtXWTecVzvPOBCFK0bNYsZlD7Hk=s900-c-k-c0x00ffffff-no-rj" alt="Facebook Logo" height="80" width="80" />
-                    <button>Create New Account</button>
+                    <button><a href="/signup">Create New Account</a></button>
                 </div>
             </div>
         </header>
@@ -23,10 +23,10 @@ export default function Loginpage(){
                         <input type="text" placeholder="Email address or phone number"/>
                         <input type="password" placeholder="Password"/>
                         <button type="submit">Log In</button>
-                        <a href="#">Forgotten Account?</a>
+                        <a href="/signup">Forgotten Account?</a>
                         <p><span>or</span></p>
                     </form>
-                    <button class="create-account">Create New Account</button>
+                    <button class="create-account"><a href="/signup">Create New Account</a></button>
     
                 </section>
             </div>

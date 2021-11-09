@@ -13,7 +13,7 @@ export default function Signup(){
                 
                <li>Email or Phone<br/><input type="text" name="email"/></li>
                <li>Password<br/><input type="password" name="password"/><br/><a href=".">Forgotten account?</a></li>
-                <li><input type="submit" name="login" value="Log In"/></li>
+                <li><a href="/login"><input type="submit" value="log in"/></a></li>
             </form>
 
         </div>
@@ -44,7 +44,7 @@ export default function Signup(){
 
             <li><input type="radio"/>Female <input type="radio"/>Male</li>
             <li id="terms">By clicking Create an account, you agree to our <a href=".">Terms</a> and that <br></br>you have read our <a href=".">Data Policy</a>, including our <a href=".">Cookie Use</a>.</li>
-            <li><input type="submit" value="Create an account"/></li>
+            <li><a href="/login"><input type="submit" value="Create an account"/></a></li>
             <li id="create_page"><a href=".">Create a Page</a> for a celebrity, band or business.</li>
         </div>
 
