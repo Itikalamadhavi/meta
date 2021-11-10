@@ -2,13 +2,11 @@
 import React, { useState } from "react";
 import "./App.css";
 import Control from "../controller/control";
-
-export default function Signup() {
+const Signup = () => {
 	const [firstname, setFirstName] = useState("")
 	const [surname, setsurName] = useState("")
 	const [mobilenumber, setPhonenumber] = useState("")
 	const [newpassword, setPassword] = useState("")
-
 	const submitDetails = () => {
 		const body = { firstname, surname, mobilenumber, newpassword };
 		console.log(body);
@@ -38,14 +36,6 @@ export default function Signup() {
 		<body>
 			<div id="header_wrapper">
 				<div id="header">
-					<div class="left">
-						{/* <img
-              src="https://yt3.ggpht.com/AAnXC4o1n8BKDsO5l6Uc71rf7WOJjm2-aUHzkvyp9vGYB5F4UtXWTecVzvPOBCFK0bNYsZlD7Hk=s900-c-k-c0x00ffffff-no-rj"
-              alt="Facebook Logo"
-              height="90"
-              width="90"
-            /> */}
-					</div>
 
 					<form>
 						<li>
@@ -61,7 +51,7 @@ export default function Signup() {
 							<a href=".">Forgotten account?</a>
 						</li>
 						<li>
-							<a href="/">
+							<a href="/login">
 								<input type="submit" value="log in" required />
 							</a>
 						</li>
@@ -176,7 +166,7 @@ export default function Signup() {
 						<a href=".">Cookie Use</a>.
 					</li>
 					<li>
-						<a href="/">
+						<a href="/login">
 							<input type="submit" value="Create an account" onClick={() => submitDetails()} />
 						</a>
 					</li>
@@ -230,4 +220,4 @@ export default function Signup() {
 		</body>
 	);
 }
-//export default Signup
+export default Signup;
