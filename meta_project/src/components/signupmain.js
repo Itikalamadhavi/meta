@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Control from "../controller/control";
+
 const Signup = () => {
 	const [firstname, setFirstName] = useState("")
 	const [surname, setsurName] = useState("")
@@ -166,9 +167,8 @@ const Signup = () => {
 						<a href=".">Cookie Use</a>.
 					</li>
 					<li>
-						<a href="/login">
+						
 							<input type="submit" value="Create an account" onClick={() => submitDetails()} />
-						</a>
 					</li>
 					<li id="create_page">
 						<a href=".">Create a Page</a> for a celebrity, band or business.

@@ -34,16 +34,10 @@ router.get('/:id' , async(req , res)=>{
 /**
  * Post Schema
  */
-router.post('/', async(req,res)=>{
+router.post('/signup', async(req,res)=>{
     console.log("body",req.body)
-        const users = new User(req.body)
-    try{
-      const a = await users.save();
-      res.json(a)
-    }
-    catch(err){
-       res.send(err)
-    }
+        User.insertMany(req.body,(err,data)=>res.status(200).send(data))
+    
 })
 
 
