@@ -1,71 +1,233 @@
-import React from 'react';
-import './App.css';
 
-export default function Signup(){
-    return(
+import React, { useState } from "react";
+import "./App.css";
+import Control from "../controller/control";
 
-<body>
-    <div id="header_wrapper">
-        <div id="header">
-        <div class="left"><img src="https://yt3.ggpht.com/AAnXC4o1n8BKDsO5l6Uc71rf7WOJjm2-aUHzkvyp9vGYB5F4UtXWTecVzvPOBCFK0bNYsZlD7Hk=s900-c-k-c0x00ffffff-no-rj" alt="Facebook Logo" height="90" width="90" /></div>
+export default function Signup() {
+	const [firstname, setFirstName] = useState("")
+	const [surname, setsurName] = useState("")
+	const [mobilenumber, setPhonenumber] = useState("")
+	const [newpassword, setPassword] = useState("")
 
-            <form action="post">
-                
-               <li>Email or Phone<br/><input type="text" name="email"/></li>
-               <li>Password<br/><input type="password" name="password"/><br/><a href=".">Forgotten account?</a></li>
-                <li><a href="/login"><input type="submit" value="log in"/></a></li>
-            </form>
+	const submitDetails = () => {
+		const body = { firstname, surname, mobilenumber, newpassword };
+		console.log(body);
+		let url = "http://localhost:1109/signup";
 
-        </div>
-    </div>
+		const success = (res) => {
+			console.log("Success", res);
+			alert("User created successfully")
+		};
+		const failure = (err) => {
+			console.log("Error", err);
+		};
+		Control.sendRequest(
+			url,
+			"post",
+			body,
+			false,
+			null,
+			success,
+			failure
+		);
+	};
 
-    <div id="wrapper">
 
-        <div id="div1">
+	return (
 
-        </div>
+		<body>
+			<div id="header_wrapper">
+				<div id="header">
+					<div class="left">
+						{/* <img
+              src="https://yt3.ggpht.com/AAnXC4o1n8BKDsO5l6Uc71rf7WOJjm2-aUHzkvyp9vGYB5F4UtXWTecVzvPOBCFK0bNYsZlD7Hk=s900-c-k-c0x00ffffff-no-rj"
+              alt="Facebook Logo"
+              height="90"
+              width="90"
+            /> */}
+					</div>
 
-        <div id="div2">
-            <h1>Create an account</h1>
+					<form>
+						<li>
+							Email or Phone
+							<br />
+							<input type="text" name="email" onChange={(event) => setPhonenumber(event.target.value)} required />
+						</li>
+						<li>
+							Password
+							<br />
+							<input type="password" name="password" onChange={(event) => setPassword(event.target.value)} required />
+							<br />
+							<a href=".">Forgotten account?</a>
+						</li>
+						<li>
+							<a href="/">
+								<input type="submit" value="log in" required />
+							</a>
+						</li>
+					</form>
+				</div>
+			</div>
 
-            <p>It's free and always will be.</p>
-            <li><input type="text" placeholder="First Name" id="Firstname"/><input type="text" placeholder="Surname" id="surname"/></li>
-            <li><input type="text" placeholder="Mobile number or email"/></li>
-            <li><input type="password" placeholder="New password"/></li>
+			<div id="wrapper">
+				<div id="div1"></div>
 
-            <p>Birthday</p>
+				<div id="div2">
+					<h1>Create an account</h1>
 
-            <li>
-                <select><option>Day</option></select>
-                <select><option>Month</option></select>
-                <select><option>Year</option></select>
-                <a href=".">Why do I need to provide my date of birth?</a>
-            </li>
+					<p>It's free and always will be.</p>
+					<li>
+						<input
+							type="text"
+							placeholder="First Name"
+							id="Firstname"
+							onChange={(event) => setFirstName(event.target.value)}
+							required
+						/>
+					</li>
+					<li>
+						<input type="text" placeholder="Surname" id="surname" onChange={(event) => setsurName(event.target.value)} required />
+					</li>
 
-            <li><input type="radio"/>Female <input type="radio"/>Male</li>
-            <li id="terms">By clicking Create an account, you agree to our <a href=".">Terms</a> and that <br></br>you have read our <a href=".">Data Policy</a>, including our <a href=".">Cookie Use</a>.</li>
-            <li><a href="/login"><input type="submit" value="Create an account"/></a></li>
-            <li id="create_page"><a href=".">Create a Page</a> for a celebrity, band or business.</li>
-        </div>
+					<li>
+						<input type="text" placeholder="Mobile number or email" onChange={(event) => setPhonenumber(event.target.value)} required />
+					</li>
+					<li>
+						<input type="password" placeholder="New password" onChange={(event) => setPassword(event.target.value)} required />
+					</li>
 
-    </div>
+					<p>Birthday</p>
 
-    <div id="footer_wrapper">
+					<li>
+						<select id="day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select id="month">
+							<option value="1">January</option>
+							<option value="2">February</option>
+							<option value="3">March</option>
+							<option value="4">April</option>
+							<option value="5">May</option>
+							<option value="6">June</option>
+							<option value="7">July</option>
+							<option value="8">August</option>
+							<option value="9">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select id="year">
+							<option value="2008">2008</option>
+							<option value="2007">2007</option>
+							<option value="2006">2006</option>
+							<option value="2005">2005</option>
+							<option value="2004">2004</option>
+							<option value="2003">2003</option>
+							<option value="2002">2002</option>
+							<option value="2001">2001</option>
+							<option value="2000">2000</option>
+							<option value="1999">1999</option>
+							<option value="1998">1998</option>
+							<option value="1997">1997</option>
+						</select>
+						<a href=".">Why do I need to provide my date of birth?</a>
+					</li>
 
-        <div id="footer1">
-            English (UK) <a href=".">हिन्दी</a><a href=".">ਪੰਜਾਬੀ</a><a href="."> اردو</a><a href=".">தமிழ்</a><a href=".">বাংলা</a><a href=".">मराठी</a><a href=".">తెలుగు</a><a href=".">ગુજરાતી</a><a href=".">ಕನ್ನಡ</a><a href=".">മലയാളം</a>
-        </div>
-        <div id="footer2">
+					<li>
+						<input type="radio" name="gender" />
+						Female
+						<input type="radio" name="gender" />
+						Male
+					</li>
+					<li id="terms">
+						By clicking Create an account, you agree to our{" "}
+						<a href=".">Terms</a> and that <br></br>you have read our{" "}
+						<a href=".">Data Policy</a>, including our{" "}
+						<a href=".">Cookie Use</a>.
+					</li>
+					<li>
+						<a href="/">
+							<input type="submit" value="Create an account" onClick={() => submitDetails()} />
+						</a>
+					</li>
+					<li id="create_page">
+						<a href=".">Create a Page</a> for a celebrity, band or business.
+					</li>
+				</div>
+			</div>
 
-            <a href=".">Sign Up</a><a href=".">Log In</a><a href=".">Messenger</a><a href=".">DotNetTec</a><a href=".">Mobile</a><a href=".">Find Friends</a>
-            <a href=".">Badges</a><a href=".">People</a><a href=".">Pages</a><a href=".">Places</a><a href=".">Games</a><a href=".">Locations</a>
-            <a href=".">Celebrities</a><a href=".">Groups</a><a href=".">Moments</a><a href=".">About</a>
-            <a href=".">Create Advert</a><a href=".">Create Page</a><a href=".">Developers</a>
-            <a href=".">Careers</a><a href=".">Privacy</a><a href=".">Cookies</a><a href=".">Ads</a><a href=".">Terms</a><a href=".">Help</a>
-
-        </div>
-    </div>
-</body>
-
-    )
+			<div id="footer_wrapper">
+				<div id="footer1">
+					English (UK) <a href=".">हिन्दी</a>
+					<a href=".">ਪੰਜਾਬੀ</a>
+					<a href="."> اردو</a>
+					<a href=".">தமிழ்</a>
+					<a href=".">বাংলা</a>
+					<a href=".">मराठी</a>
+					<a href=".">తెలుగు</a>
+					<a href=".">ગુજરાતી</a>
+					<a href=".">ಕನ್ನಡ</a>
+					<a href=".">മലയാളം</a>
+				</div>
+				<div id="footer2">
+					<a href=".">Sign Up</a>
+					<a href=".">Log In</a>
+					<a href=".">Messenger</a>
+					<a href=".">DotNetTec</a>
+					<a href=".">Mobile</a>
+					<a href=".">Find Friends</a>
+					<a href=".">Badges</a>
+					<a href=".">People</a>
+					<a href=".">Pages</a>
+					<a href=".">Places</a>
+					<a href=".">Games</a>
+					<a href=".">Locations</a>
+					<a href=".">Celebrities</a>
+					<a href=".">Groups</a>
+					<a href=".">Moments</a>
+					<a href=".">About</a>
+					<a href=".">Create Advert</a>
+					<a href=".">Create Page</a>
+					<a href=".">Developers</a>
+					<a href=".">Careers</a>
+					<a href=".">Privacy</a>
+					<a href=".">Cookies</a>
+					<a href=".">Ads</a>
+					<a href=".">Terms</a>
+					<a href=".">Help</a>
+				</div>
+			</div>
+		</body>
+	);
 }
+//export default Signup

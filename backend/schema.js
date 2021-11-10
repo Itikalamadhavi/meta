@@ -16,18 +16,7 @@ newpassword: {
 type: String,
 required: true
 },
-day:{
-    type: Number,
-required: true
-},
-month:{
-    type: String,
-required: true
-},
-year:{
-    type: Number,
-    required: true
-}
+
 })
 
 module.exports = mongoose.model('User', projectSchema)

@@ -3,6 +3,16 @@ import "./index.css";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 
+// Send a POST request
+// axios({
+//     method: 'post',
+//     url: '/user/12345',
+//     data: {
+//       firstName: 'Fred',
+//       lastName: 'Flintstone'
+//     }
+//   });
+
 export default function Loginpage(){
     return(
         <>
