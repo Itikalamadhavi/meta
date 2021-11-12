@@ -8,7 +8,7 @@ const app = express();
 const cors = require("cors");
 //connecting to the database
 const url =
-	"mongodb+srv://m001-student:itikala%401999@sandbox.unstl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+	"mongodb+srv://m001-student:madhu%401999@sandbox.unstl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 app.use(cors());
 mongoose.connect(url, { useNewUrlParser: true }).then(() => {
 	console.log("connection success");
