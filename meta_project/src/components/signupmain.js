@@ -82,7 +82,7 @@ const Signup = () => {
 
   const submitDetails = () => {
     if (validateEmail(email) && validate(newpassword)) {
-      const body = { firstname, surname, email, newpassword };
+      const body = { firstname, surname, email, newpassword,phonenumber};
       console.log(body);
       let url = "http://localhost:1109/signup";
 
@@ -101,6 +101,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [newpassword, setPassword] = useState("");
   const [validatemsg, setValidateMsg] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
   const [visible, setVisible] = useState(false);
  // const [registrationPageNumber, setregistrationPageNumber] = useState(true);
   return (
@@ -130,6 +131,40 @@ const Signup = () => {
             <div id="div1"></div>
             <div id="div2">
               <br />
+              <li>
+              <select name="countryCode" id="">
+            <optgroup label="Other countries">
+                <option data-countryCode="DZ" value="213">Algeria (+213)</option>
+                <option data-countryCode="AD" value="376">Andorra (+376)</option>
+                <option data-countryCode="AO" value="244">Angola (+244)</option>
+                <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
+                <option data-countryCode="AG" value="1268">Antigua &amp; Barbuda (+1268)</option>
+                <option data-countryCode="AR" value="54">Argentina (+54)</option>
+                <option data-countryCode="AM" value="374">Armenia (+374)</option>
+                <option data-countryCode="IN" value="91">India (+91)</option>
+                <option data-countryCode="ID" value="62">Indonesia (+62)</option>
+                <option data-countryCode="IR" value="98">Iran (+98)</option>
+                <option data-countryCode="IQ" value="964">Iraq (+964)</option>
+                <option data-countryCode="IE" value="353">Ireland (+353)</option>
+                <option data-countryCode="IL" value="972">Israel (+972)</option>
+                <option data-countryCode="IT" value="39">Italy (+39)</option>
+                <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
+                <option data-countryCode="GB" value="44">UK (+44)</option> 
+                <option data-countryCode="UA" value="380">Ukraine (+380)</option>
+                <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
+                <option data-countryCode="UY" value="598">Uruguay (+598)</option>
+                <option data-countryCode="US" value="1">USA (+1)</option> 
+                <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
+                </optgroup>
+            </select>
+              </li>
+              <br />
+              <li>
+                <input type="text" placeholder="Phone Number" id="Phonenumber" onChange={(event) => setPhoneNumber(event.target.value)} required />
+              </li>
+              
+              <div>
+                <br />
           <p>Birthday</p>
           <li>
             <select id="day">
@@ -219,6 +254,7 @@ const Signup = () => {
         </div>
         </div>
         </div>
+        </div>
 
         <div id="footer_wrapper">
           <div id="footer1">
@@ -300,7 +336,7 @@ const Signup = () => {
               <h1>Create an account</h1>
               <p>It's free and always will be.</p>
               <li>
-                <input type="text" placeholder="First Name" id="Firstname" onChange={(event) => setFirstName(event.target.value)} />
+                <input type="text" placeholder="First Name" id="Firstname" onChange={(event) => setFirstName(event.target.value)} required />
               </li>
 
               <li>

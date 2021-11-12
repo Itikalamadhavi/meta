@@ -20,6 +20,10 @@ newpassword: {
 type: String,
 required: true
 },
+phonenumber: {
+    type: Number,
+    required: true
+}
 
 })
 
