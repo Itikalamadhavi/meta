@@ -8,9 +8,9 @@ import Control from "../controller/control";
  */
 const Signup = () => {
 
-	/**
-	 This code snippet checks for the valid email address
-	 */
+  /**
+   This code snippet checks for the valid email address
+   */
   const validateEmail = (email) => {
     let regexEmail = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     if (email.match(regexEmail)) {
@@ -20,10 +20,10 @@ const Signup = () => {
       return false;
     }
   };
-	/**
-	 * 
-	 This code snippet checks for the valid password
-	 */
+  /**
+   * 
+   This code snippet checks for the valid password
+   */
   const isUpper = (pswd) => {
     let format = /[A-Z]/;
     if (format.test(pswd)) {
@@ -68,19 +68,17 @@ const Signup = () => {
       specialTest(password) &&
       isNumber(password)
     ) {
-      // console.log("Strong password")
       setValidateMsg("strong password");
       return true;
     } else {
-      //console.log("Please enter a valid password")
       setValidateMsg("Please enter a valid password");
       return false;
     }
-    
+
   };
-	/**
-	 * In this we are going to call the fucntions for validations
-	 */
+  /**
+   * In this we are going to call the fucntions for validations
+   */
 
   const submitDetails = () => {
     if (validateEmail(email) && validate(newpassword)) {
@@ -103,89 +101,17 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [newpassword, setPassword] = useState("");
   const [validatemsg, setValidateMsg] = useState("");
-  // const [validateerror,setValidateerrorMsg] = useState("")
+  const [visible, setVisible] = useState(false);
+ // const [registrationPageNumber, setregistrationPageNumber] = useState(true);
   return (
-    <body>
-      <div id="header_wrapper">
-        <div id="header">
-          <form>
-            <li>
-              Email
-              <br />
-              <input
-                type="text"
-                name="email"
-                onChange={(event) => setEmail(event.target.value)}
-                required
-              />
-            </li>
-            <li>
-              Password
-              <br />
-              <input
-                type="password"
-                name="password"
-                onChange={(event) => setPassword(event.target.value)}
-                required
-              />
-              <br />
-              <a href=".">Forgotten account?</a>
-            </li>
-            <li>
-              <a href="/login">
-                <input type="submit" value="log in" required />
-              </a>
-            </li>
-          </form>
-        </div>
-      </div>
+    <>
 
-      <div id="wrapper">
-        <div id="div1"></div>
-
-        <div id="div2">
-          <h1>Create an account</h1>
-
-          <p>It's free and always will be.</p>
-          <li>
-            <input
-              type="text"
-              placeholder="First Name"
-              id="Firstname"
-              onChange={(event) => setFirstName(event.target.value)}
-            />
-          </li>
-          <li>
-            <input
-              type="text"
-              placeholder="Surname"
-              id="surname"
-              onChange={(event) => setsurName(event.target.value)}
-              required
-            />
-          </li>
-          {/* <h5 className="errormsg">{validateerror}</h5> */}
-          <li>
-            <input
-              type="text"
-              placeholder="email"
-              id="email-input"
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-          </li>
-          <h5 className="passmsg">{validatemsg}</h5>
-          <li>
-            <input
-              type="password"
-              placeholder="New password"
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            />
-          </li>
-
+      {visible ? (<>
+        <div class="two">
+        <div id="wrapper">
+            <div id="div1"></div>
+            <div id="div2">
           <p>Birthday</p>
-
           <li>
             <select id="day">
               <option value="1">1</option>
@@ -264,61 +190,172 @@ const Signup = () => {
             <a href=".">Cookie Use</a>.
           </li>
           <li>
-            <input
-              type="submit"
-              value="Create an account"
-              onClick={() => submitDetails()}
-            />
+            <input type="submit" value="Submit" onClick={() => submitDetails()}></input>
           </li>
-					<button class="btn btn-primary"><a href="/">Back</a></button>
+          <button class="btn btn-primary"><a href="/">Back</a></button>
+         
           <li id="create_page">
             <a href=".">Create a Page</a> for a celebrity, band or business.
           </li>
         </div>
-      </div>
+        </div>
+        </div>
 
-      <div id="footer_wrapper">
-        <div id="footer1">
-          English (UK) <a href=".">हिन्दी</a>
-          <a href=".">ਪੰਜਾਬੀ</a>
-          <a href="."> اردو</a>
-          <a href=".">தமிழ்</a>
-          <a href=".">বাংলা</a>
-          <a href=".">मराठी</a>
-          <a href=".">తెలుగు</a>
-          <a href=".">ગુજરાતી</a>
-          <a href=".">ಕನ್ನಡ</a>
-          <a href=".">മലയാളം</a>
+        <div id="footer_wrapper">
+          <div id="footer1">
+            English (UK) <a href=".">हिन्दी</a>
+            <a href=".">ਪੰਜਾਬੀ</a>
+            <a href="."> اردو</a>
+            <a href=".">தமிழ்</a>
+            <a href=".">বাংলা</a>
+            <a href=".">मराठी</a>
+            <a href=".">తెలుగు</a>
+            <a href=".">ગુજરાતી</a>
+            <a href=".">ಕನ್ನಡ</a>
+            <a href=".">മലയാളം</a>
+          </div>
+          <div id="footer2">
+            <a href=".">Sign Up</a>
+            <a href=".">Log In</a>
+            <a href=".">Messenger</a>
+            <a href=".">DotNetTec</a>
+            <a href=".">Mobile</a>
+            <a href=".">Find Friends</a>
+            <a href=".">Badges</a>
+            <a href=".">People</a>
+            <a href=".">Pages</a>
+            <a href=".">Places</a>
+            <a href=".">Games</a>
+            <a href=".">Locations</a>
+            <a href=".">Celebrities</a>
+            <a href=".">Groups</a>
+            <a href=".">Moments</a>
+            <a href=".">About</a>
+            <a href=".">Create Advert</a>
+            <a href=".">Create Page</a>
+            <a href=".">Developers</a>
+            <a href=".">Careers</a>
+            <a href=".">Privacy</a>
+            <a href=".">Cookies</a>
+            <a href=".">Ads</a>
+            <a href=".">Terms</a>
+            <a href=".">Help</a>
+          </div>
         </div>
-        <div id="footer2">
-          <a href=".">Sign Up</a>
-          <a href=".">Log In</a>
-          <a href=".">Messenger</a>
-          <a href=".">DotNetTec</a>
-          <a href=".">Mobile</a>
-          <a href=".">Find Friends</a>
-          <a href=".">Badges</a>
-          <a href=".">People</a>
-          <a href=".">Pages</a>
-          <a href=".">Places</a>
-          <a href=".">Games</a>
-          <a href=".">Locations</a>
-          <a href=".">Celebrities</a>
-          <a href=".">Groups</a>
-          <a href=".">Moments</a>
-          <a href=".">About</a>
-          <a href=".">Create Advert</a>
-          <a href=".">Create Page</a>
-          <a href=".">Developers</a>
-          <a href=".">Careers</a>
-          <a href=".">Privacy</a>
-          <a href=".">Cookies</a>
-          <a href=".">Ads</a>
-          <a href=".">Terms</a>
-          <a href=".">Help</a>
+
+
+
+
+
+
+
+
+
+
+
+      </>) : (<>
+        <div class="one">
+
+          <div id="header_wrapper">
+            <div id="header">
+              <form>
+                <li>Email<br />
+                  <input type="text" name="email" onChange={(event) => setEmail(event.target.value)} required /></li>
+
+                <li>Password<br />
+                  <input type="password" name="password" onChange={(event) => setPassword(event.target.value)} required />
+                  <br />
+                  <a href=".">Forgotten account?</a>
+                </li>
+
+                <li>
+                  <a href="/login"><input type="submit" value="log in" required /></a>
+                </li>
+              </form>
+            </div>
+          </div>
+
+          <div id="wrapper">
+            <div id="div1"></div>
+            <div id="div2">
+              <h1>Create an account</h1>
+              <p>It's free and always will be.</p>
+              <li>
+                <input type="text" placeholder="First Name" id="Firstname" onChange={(event) => setFirstName(event.target.value)} />
+              </li>
+
+              <li>
+                <input type="text" placeholder="Surname" id="surname" onChange={(event) => setsurName(event.target.value)} required />
+              </li>
+
+              <li>
+                <input type="text" placeholder="email" id="email-input" onChange={(event) => setEmail(event.target.value)} required
+                />
+              </li>
+
+              <h5 className="passmsg">{validatemsg}</h5>
+              <li>
+                <input type="password" placeholder="New password" onChange={(event) => setPassword(event.target.value)} required
+                />
+              </li>
+
+              <input type="submit" value="Next Step" onClick={() => setVisible(true)} />
+
+            
+
+            </div>
+          </div>
         </div>
-      </div>
-    </body>
-  );
-};
+
+        <div id="footer_wrapper">
+          <div id="footer1">
+            English (UK) <a href=".">हिन्दी</a>
+            <a href=".">ਪੰਜਾਬੀ</a>
+            <a href="."> اردو</a>
+            <a href=".">தமிழ்</a>
+            <a href=".">বাংলা</a>
+            <a href=".">मराठी</a>
+            <a href=".">తెలుగు</a>
+            <a href=".">ગુજરાતી</a>
+            <a href=".">ಕನ್ನಡ</a>
+            <a href=".">മലയാളം</a>
+          </div>
+          <div id="footer2">
+            <a href=".">Sign Up</a>
+            <a href=".">Log In</a>
+            <a href=".">Messenger</a>
+            <a href=".">DotNetTec</a>
+            <a href=".">Mobile</a>
+            <a href=".">Find Friends</a>
+            <a href=".">Badges</a>
+            <a href=".">People</a>
+            <a href=".">Pages</a>
+            <a href=".">Places</a>
+            <a href=".">Games</a>
+            <a href=".">Locations</a>
+            <a href=".">Celebrities</a>
+            <a href=".">Groups</a>
+            <a href=".">Moments</a>
+            <a href=".">About</a>
+            <a href=".">Create Advert</a>
+            <a href=".">Create Page</a>
+            <a href=".">Developers</a>
+            <a href=".">Careers</a>
+            <a href=".">Privacy</a>
+            <a href=".">Cookies</a>
+            <a href=".">Ads</a>
+            <a href=".">Terms</a>
+            <a href=".">Help</a>
+          </div>
+        </div>
+      </>
+      )
+
+
+    }</>
+  )
+}
+
+
 export default Signup;
+
