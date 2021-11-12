@@ -9,7 +9,6 @@ import Landingpage from './components/landing.js';
 
 function App() {
   return (
-   
      <Router>
             <Switch>
                 <Route
@@ -27,7 +26,6 @@ function App() {
         
             </Switch>
         </Router>
-  
   );
 }
 

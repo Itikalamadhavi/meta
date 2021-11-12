@@ -2,6 +2,9 @@ import React from 'react';
 import "./index.css";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
+/**
+ * This code is for the login page
+ */
 
 export default function Loginpage(){
     return(
@@ -27,6 +30,7 @@ export default function Loginpage(){
                         <p><span>or</span></p>
                     </form>
                     <button class="create-account"><a href="/signup">Create New Account</a></button>
+										<button class="btn btn-primary"><a href="/">back</a></button>
     
                 </section>
             </div>
