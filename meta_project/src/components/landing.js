@@ -1,9 +1,11 @@
 import React from 'react';
-import "../assests/front.css";
+import "../assets/front.css";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 /**
  * The below code represents the landing page
+ * @author: Madhavi
+ * @author: Rajendra Prasad
  */
 
 export default function Landingpage(){

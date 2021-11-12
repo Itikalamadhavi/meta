@@ -1,5 +1,15 @@
 class Controller {
 
+	/**
+	* @param  {string} url
+	* @param  {string} requestType
+	* @param  {json} requestBody
+	* @param  {boolean} isAuthenticated
+	* @param  {string} authToken
+	* @param  {Function} success
+	* @param  {Function} failure
+	*/
+
 	sendRequest(url, requestType, requestBody, isAuthenticated, authToken, success, failure) {
 		console.log("come here")
 		let body = {};

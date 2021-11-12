@@ -1,5 +1,5 @@
 import React from 'react';
-import "./index.css";
+import "../assets/index.css";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 /**

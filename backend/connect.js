@@ -1,10 +1,14 @@
+
+/*@author: Madhavi
+* @author: Rajendra Prasad
+*/
 const express = require("express"); // express module
 const mongoose = require("mongoose"); // mongoose module
 const app = express();
 const cors = require("cors");
 //connecting to the database
 const url =
-  "mongodb+srv://rajendraprasad:prasad2021@cluster0.axa6w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"; 
+  "mongodb+srv://m001-student:itikala%401999@sandbox.unstl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"; 
 app.use(cors());
 mongoose.connect(url, { useNewUrlParser: true }).then(() => {
   console.log("connection success");

@@ -1,7 +1,9 @@
+/*@author: Madhavi
+* @author: Rajendra Prasad
+*/
 const express = require('express');
 const router = express.Router();
 const User = require('./schema')
-
 
 /**
  * Getting All the Schema
