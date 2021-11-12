@@ -108,9 +108,28 @@ const Signup = () => {
 
       {visible ? (<>
         <div class="two">
+        <div id="header_wrapper">
+            <div id="header">
+              <form>
+                <li>Email<br />
+                  <input type="text" name="email" onChange={(event) => setEmail(event.target.value)} required /></li>
+
+                <li>Password<br />
+                  <input type="password" name="password" onChange={(event) => setPassword(event.target.value)} required />
+                  <br />
+                  <a href=".">Forgotten account?</a>
+                </li>
+
+                <li>
+                  <a href="/login"><input type="submit" value="log in" required /></a>
+                </li>
+              </form>
+            </div>
+          </div>
         <div id="wrapper">
             <div id="div1"></div>
             <div id="div2">
+              <br />
           <p>Birthday</p>
           <li>
             <select id="day">
@@ -192,7 +211,7 @@ const Signup = () => {
           <li>
             <input type="submit" value="Submit" onClick={() => submitDetails()}></input>
           </li>
-          <button class="btn btn-primary"><a href="/">Back</a></button>
+          <button class="btn btn-primary back"><a href="/">Back</a></button>
          
           <li id="create_page">
             <a href=".">Create a Page</a> for a celebrity, band or business.
@@ -298,8 +317,9 @@ const Signup = () => {
                 <input type="password" placeholder="New password" onChange={(event) => setPassword(event.target.value)} required
                 />
               </li>
+              <br />
 
-              <input type="submit" value="Next Step" onClick={() => setVisible(true)} />
+              <input type="submit" value="Next Step" class="back" onClick={() => setVisible(true)} />
 
             
 

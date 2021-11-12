@@ -30,7 +30,8 @@ export default function Loginpage(){
                         <p><span>or</span></p>
                     </form>
                     <button class="create-account"><a href="/signup">Create New Account</a></button>
-										<button class="btn btn-primary"><a href="/">back</a></button>
+                    <br />
+					<button class="btn btn-primary back"><a href="/">Back</a></button>
     
                 </section>
             </div>
