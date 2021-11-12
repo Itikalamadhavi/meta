@@ -26,6 +26,7 @@ ul {
 header {
   background-color: #3b5998;
   padding: 20px 0;
+  height: 80px;
 }
 
 header .content {

@@ -18,7 +18,7 @@ export default function Loginpage(){
         <main>
             <div class="container">
                 <section class="login-form">
-                    <h1>Login to Meta</h1>
+                    <h1>Login to Facebook</h1>
                     <form>
                         <input type="text" placeholder="email" required/>
                         <input type="password" placeholder="Password" required/>

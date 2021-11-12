@@ -110,7 +110,7 @@ const Signup = () => {
 						<li>
 							Email
 							<br />
-							<input type="email" name="email" id="email-input" onChange={(event) => setEmail(event.target.value)} required/>
+							<input type="text" name="email" onChange={(event) => setEmail(event.target.value)} required/>
 						</li>
 						<li>
 							Password
@@ -129,7 +129,9 @@ const Signup = () => {
 			</div>
 
 			<div id="wrapper">
-				<div id="div1"></div>
+				<div id="div1">
+					
+				</div>
 
 				<div id="div2">
 					<h1>Create an account</h1>
