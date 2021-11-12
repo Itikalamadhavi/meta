@@ -8,8 +8,8 @@ surname:{
     type: String,
     required: true  
 },
-mobilenumber: {
-type: Number,
+email: {
+type: String,
 required: true
 },
 newpassword: {

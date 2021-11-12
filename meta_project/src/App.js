@@ -2,6 +2,8 @@ import React from 'react';
 // import './App.css';
 import Signup from './components/signupmain';
 import Loginpage from './components/login';
+// import Landing from './components/landing';
+
  import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 //import { Routes, Route, useParams } from "react-router-dom";
 
@@ -10,8 +12,12 @@ function App() {
    
      <Router>
             <Switch>
-                <Route
+                {/* <Route
                     exact path="/"
+                    render={()=><Landing/>}
+                /> */}
+                <Route
+                    exact path="/login"
                     render={()=><Loginpage/>}
                 />
                 <Route

@@ -20,8 +20,8 @@ export default function Loginpage(){
                 <section class="login-form">
                     <h1>Login to Meta</h1>
                     <form>
-                        <input type="text" placeholder="Email address or phone number"/>
-                        <input type="password" placeholder="Password"/>
+                        <input type="text" placeholder="email" required/>
+                        <input type="password" placeholder="Password" required/>
                         <button type="submit">Log In</button>
                         <a href="/signup">Forgotten Account?</a>
                         <p><span>or</span></p>

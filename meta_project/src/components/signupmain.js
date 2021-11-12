@@ -4,34 +4,102 @@ import "./App.css";
 import Control from "../controller/control";
 
 const Signup = () => {
+	// const validatename = (firstname) => {
+		
+	// }
+	const validateEmail = (email) => {
+		let regexEmail = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+		if (email.match(regexEmail)) {
+			
+			return true;
+		} else {
+			setValidateMsg("Please enter valid emailid")
+			return false;
+		}
+	}
+	const isUpper = (pswd) => {
+		let format = /[A-Z]/
+		if (format.test(pswd)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	const isLower = (pswd) => {
+		let format = /[a-z]/
+		if (format.test(pswd)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	const specialTest = (pswd) => {
+		let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+		if (format.test(pswd)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	const isNumber = (pswd) => {
+		let hasNumber = /\d/;
+		if (hasNumber.test(pswd)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	const validate = (password) => {
+		let length = password.length;
+
+		if (length >= 8 && isUpper(password) && isLower(password) && specialTest(password) && isNumber(password)) {
+			// console.log("Strong password")
+			setValidateMsg("strong password")
+			return true
+		}
+		else {
+		 //console.log("Please enter a valid password")
+			setValidateMsg("Please enter a valid password")
+			return false
+		}
+		 setValidateMsg("")
+	}
+
+	const submitDetails = () => {
+		if (validateEmail(email) && validate(newpassword)) {
+			const body = { firstname, surname, email, newpassword };
+			console.log(body);
+			let url = "http://localhost:1109/";
+
+			const success = (res) => {
+				console.log("Success", res);
+				alert("User created successfully")
+			};
+			const failure = (err) => {
+				console.log("Error", err);
+			};
+			Control.sendRequest(
+				url,
+				"post",
+				body,
+				false,
+				null,
+				success,
+				failure
+			);
+		}
+	};
 	const [firstname, setFirstName] = useState("")
 	const [surname, setsurName] = useState("")
-	const [mobilenumber, setPhonenumber] = useState("")
+	const [email, setEmail] = useState("")
 	const [newpassword, setPassword] = useState("")
-	const submitDetails = () => {
-		const body = { firstname, surname, mobilenumber, newpassword };
-		console.log(body);
-		let url = "http://localhost:1109/signup";
-
-		const success = (res) => {
-			console.log("Success", res);
-			alert("User created successfully")
-		};
-		const failure = (err) => {
-			console.log("Error", err);
-		};
-		Control.sendRequest(
-			url,
-			"post",
-			body,
-			false,
-			null,
-			success,
-			failure
-		);
-	};
-
-
+	const [validatemsg, setValidateMsg] = useState("")
+	// const [validateerror,setValidateerrorMsg] = useState("")
 	return (
 
 		<body>
@@ -40,14 +108,14 @@ const Signup = () => {
 
 					<form>
 						<li>
-							Email or Phone
+							Email
 							<br />
-							<input type="text" name="email" onChange={(event) => setPhonenumber(event.target.value)} required />
+							<input type="email" name="email" id="email-input" onChange={(event) => setEmail(event.target.value)} required/>
 						</li>
 						<li>
 							Password
 							<br />
-							<input type="password" name="password" onChange={(event) => setPassword(event.target.value)} required />
+							<input type="password" name="password" onChange={(event) => setPassword(event.target.value)} required/>
 							<br />
 							<a href=".">Forgotten account?</a>
 						</li>
@@ -73,18 +141,18 @@ const Signup = () => {
 							placeholder="First Name"
 							id="Firstname"
 							onChange={(event) => setFirstName(event.target.value)}
-							required
 						/>
 					</li>
 					<li>
-						<input type="text" placeholder="Surname" id="surname" onChange={(event) => setsurName(event.target.value)} required />
+						<input type="text" placeholder="Surname" id="surname" onChange={(event) => setsurName(event.target.value)} required/>
 					</li>
-
+					{/* <h5 className="errormsg">{validateerror}</h5> */}
 					<li>
-						<input type="text" placeholder="Mobile number or email" onChange={(event) => setPhonenumber(event.target.value)} required />
+						<input type="text" placeholder="email" id="email-input" onChange={(event) => setEmail(event.target.value)} required/>
 					</li>
+					<h5 className="passmsg">{validatemsg}</h5>
 					<li>
-						<input type="password" placeholder="New password" onChange={(event) => setPassword(event.target.value)} required />
+						<input type="password" placeholder="New password" onChange={(event) => setPassword(event.target.value)} required/>
 					</li>
 
 					<p>Birthday</p>
@@ -167,8 +235,8 @@ const Signup = () => {
 						<a href=".">Cookie Use</a>.
 					</li>
 					<li>
-						
-							<input type="submit" value="Create an account" onClick={() => submitDetails()} />
+
+						<input type="submit" value="Create an account" onClick={() => submitDetails()} />
 					</li>
 					<li id="create_page">
 						<a href=".">Create a Page</a> for a celebrity, band or business.
